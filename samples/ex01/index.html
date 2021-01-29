@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.2.1/js/msal.js"
+        integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.1/js/msal.js' type='text/javascript' integrity='sha384-m/3NDUcz4krpIIiHgpeO0O8uxSghb+lfBTngquAo2Zuy2fEF+YgFeP08PWFo5FiJ' crossorigin='anonymous'%3E%3C/script%3E"));
+    </script>
+</head>
+
+<body>
+    <button id="logOnButton">ログイン</button>
+
+    <div id="loginedArea" style="display: none;">
+        <button id="logOffButton">ログオフ</button>
+    </div>
+    <br><br>
+    <div id="display"></div>
+</body>
+<script src="aadAuth.js"></script>
+<script>
+    const $id = (id) => { return document.getElementById(id) };
+    const logOnButton = $id('logOnButton'),
+        logOffButton = $id('logOffButton'),
+        loginedArea = $id('loginedArea'),
+        display = $id('display');
+    logOnButton.addEventListener('click', logon);
+    logOffButton.addEventListener('click', logoff);
+
+
+    function showItem(text){
+        let elm = document.createElement('div');
+        elm.innerText = text;
+        display.appendChild(elm);
+    }
+
+    function flip_flopDisplay(ctrl1, ctrl2) {
+        ctrl1.style.display = ctrl2.style.display;
+        ctrl2.style.display = (ctrl2.style.display === 'none') ? 'block' : 'none';
+    }
+
+</script>
+
+</html>
