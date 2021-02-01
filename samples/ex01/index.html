@@ -48,5 +48,12 @@
         ctrl1.style.display = ctrl2.style.display;
         ctrl2.style.display = (ctrl2.style.display === 'none') ? 'block' : 'none';
     }
+
+    //プロパティ名と値を表示
+    function showPropertyName_and_Value(objInfo) {
+        for (var prop in objInfo) {
+            showItem(`${prop} : ${objInfo[prop]}`);
+        }
+    }
     </script>
 </html>
