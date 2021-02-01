@@ -1,6 +1,6 @@
 const msalConfig = {
     auth: {
-        clientId: "5b5a9f1c-071b-4510-b4c7-6193de642e73",
+        clientId: "0b7782a2-705c-47e5-8638-fa40c284674c",
         authority: "https://login.microsoftonline.com/common",
         redirectUri: "http://localhost:8080/index.html",
     },
@@ -26,15 +26,19 @@ function logon() {
             let accoutInfo = myMSALObj.getAccount();
             //ログインに成功していればアカウントの情報が返る
             if (accoutInfo) {
+                //ログイン済ユーザー情報を表示
                 showItem(accoutInfo.name);
                 showItem(accoutInfo.userName);
+                //画面の表示を切り替える
                 flip_flopDisplay(logOnButton, loginedArea);
+
                 //アクセス Token を取得する
                 getAccessToken(loginRequest)
                     .then(response => {
                         showItem(`Bearer ${response.accessToken}`);//←の記述はセキュリティを考慮し、演習が終わったら削除します
                         sessionStorage.setItem('accessToken', response.accessToken);
                     });
+
             }
         }).catch(error => {
             showItem('エラー : ' + error);
@@ -45,7 +49,6 @@ function logoff() {
     myMSALObj.logout();
     flip_flopDisplay(logOnButton, loginedArea);
 }
-
 
 function getAccessToken(request) {
     return myMSALObj.acquireTokenSilent(request)
