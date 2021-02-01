@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.2.1/js/msal.js"
+    <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js"
         integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP"
         crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -17,20 +17,16 @@
 
 <body>
     <button id="logOnButton">ログイン</button>
-
     <div id="loginedArea" style="display: none;">
+
         <button id="userProfileButton">プロファイル情報の取得</button>
         <br /><br />
-
-        <!--このコメントを演習4-4 ステップ 2 のタグで置き換え-->
-        ファイルのアップロード
         <form id="fileForm">
             <input type="file" id="fileCtrl">
         </form>
         <br>
         <button id="sendFileButton" style="display: none;">アップロード</button>
         <br><br>
-        <!-- ココマデ -->
 
         <button id="logOffButton">ログオフ</button>
     </div>
@@ -46,49 +42,49 @@
 
     $id('userProfileButton').addEventListener('click', getUserProfile);
 
-    
-    /*このコメントを演習 4-4 ステップ 3 のコードで置き換え*/
     const fileCtrl = $id('fileCtrl'),
         senFileButton = $id('sendFileButton');
 
-    fileCtrl.addEventListener('change',()=>{
+    fileCtrl.addEventListener('change', () => {
         //送信ボタンの表示/非表示を切り替え
-        sendFileButton.style.display = ((fileCtrl.files.length > 0)?'block':'none');
+        sendFileButton.style.display = ((fileCtrl.files.length > 0) ? 'block' : 'none');
     });
 
     sendFileButton.addEventListener('click', () => {
         const graphAPI_v01_uri = 'https://graph.microsoft.com/v1.0',
-            targetDrive = 'groups/106d2e1f-9a78-453f-b34e-87f9d5b452c1/drive/items/016OHW67TNPLNDTYC5DVEZGDLRV2B2A4OL:',
+            //targetDrive = 'me/drive/root:/demo',
+            //(※) parent-id の後ろに : (セミコロン) をかならず付加してください
+            targetDrive = 'groups/106d2e1f-9a78-453f-b34e-87f9d5b452c1/drive/items/016OHW67UNT3IH6FGGTNBYDNBKKT226NTA:',
             targetFile = fileCtrl.files[0],
             apiEndpoint = `${graphAPI_v01_uri}/${targetDrive}/${targetFile.name}:/content`,
             uploadFile = {
-                file : targetFile, 
-                endpoint : apiEndpoint,
-                contentType : targetFile.type
+                file: targetFile,
+                endpoint: apiEndpoint,
+                contentType: targetFile.type
             };
 
         accessToken = sessionStorage.getItem('accessToken');
         sendFile(uploadFile, accessToken);
     });
 
-
+    //情報表示用のエレメントを追加
     function showItem(text) {
         let elm = document.createElement('div');
         elm.innerText = text;
         display.appendChild(elm);
     }
-
+    //表示、非表示が相反するコントロールの表示を切り替える
     function flip_flopDisplay(ctrl1, ctrl2) {
         ctrl1.style.display = ctrl2.style.display;
         ctrl2.style.display = (ctrl2.style.display === 'none') ? 'block' : 'none';
     }
 
+    //プロパティ名と値を表示
     function showPropertyName_and_Value(objInfo) {
         for (var prop in objInfo) {
             showItem(`${prop} : ${objInfo[prop]}`);
         }
     }
-
 </script>
 
 </html>

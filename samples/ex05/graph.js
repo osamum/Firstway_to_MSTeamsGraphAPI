@@ -1,4 +1,3 @@
-
 //ログイン済ユーザーのプロファイル情報を取得
 function getUserProfile(){
     //ログイン済ユーザーアカウントのプロファイル情報を取得する Graph API のエンドポイント
@@ -29,7 +28,6 @@ function callGraphAPI(endpoint, token, callback) {
         .catch(error => console.log(error))
 }
 
-/*演習 4-4 ステップ 4 でここにコードを追加*/
 function sendFile(uploadFile,token) {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
