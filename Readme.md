@@ -57,6 +57,7 @@ Microsoft Graph API は Office 365 のような Microsoft 365 に含まれるさ
     - [Azure Active Directory へのアクセス許可の追加](https://github.com/osamum/Firstway_to_MSTeamsGraphAPI/blob/master/Ex05.md#%E3%82%BF%E3%82%B9%E3%82%AF-2--%E6%A4%9C%E8%A8%BC%E7%94%A8%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%B8%E3%81%AE%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E8%A8%B1%E5%8F%AF%E3%81%AE%E8%BF%BD%E5%8A%A0)
     - [演習用アプリケーションへの、SharePoint サイトへのファイルアップロード機能の実装](https://github.com/osamum/Firstway_to_MSTeamsGraphAPI/blob/master/Ex05.md#%E3%82%BF%E3%82%B9%E3%82%AF-3--%E6%BC%94%E7%BF%92%E7%94%A8%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%B8%E3%81%AEsharepoint-%E3%82%B5%E3%82%A4%E3%83%88%E3%81%B8%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%E6%A9%9F%E8%83%BD%E3%81%AE%E5%AE%9F%E8%A3%85)
     - [Teams チャネルへのメッセージの投稿](https://github.com/osamum/Firstway_to_MSTeamsGraphAPI/blob/master/Ex05.md#%E3%82%BF%E3%82%B9%E3%82%AF-4--teams-%E3%83%81%E3%83%A3%E3%83%8D%E3%83%AB%E3%81%B8%E3%81%AE%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AE%E6%8A%95%E7%A8%BF)
+6. [まとめ](summary.md)
 
 ## このハンズオンの進め方
 
