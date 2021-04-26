@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- msal.min.jsはmsal.jsの代わりに使用できます。デバッグを容易にするためにmsal.jsが含まれています -->
+    <script src="https://alcdn.msauth.net/browser/2.7.0/js/msal-browser.js"
+        integrity="sha384-5Fqyq1ncNYhL2mXCdWAFXkf2wWtKeA0mXYp++ryAX1lowD0ctAHFdity37L/ULXh"
+        crossorigin="anonymous"></script>
+
+    <!-- 信頼性を確保するために、マイクロソフトは 2 つ目の CDN を提供しています -->
+    <script type="text/javascript">
+        if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/browser/2.7.0/js/msal-browser.js' type='text/javascript' crossorigin='anonymous' %3E%3C/script%3E"));
+    </script>
+    <script src="aadAuth.js"></script>
+</head>
+
+<body>
+    <button id="logOnButton">ログイン</button>
+    <div id="loginedArea" style="display: none;">
+
+        <!--このコメントを演習 3-2 のステップ 6 のタグで置き換え-->
+        <!--このコメントを演習 4-4 のステップ 2 のタグで置き換え-->
+
+        <button id="logOffButton">ログオフ</button>
+    </div>
+    <br><br>
+    <div id="display"></div>
+</body>
+<script>
+    const $id = (id) => { return document.getElementById(id) };
+    const loginedArea = $id('loginedArea'),
+        display = $id('display');
+    $id('logOnButton').addEventListener('click', logon);
+    $id('logOffButton').addEventListener('click', logoff);
+
+    /*このコメントを演習 3-2 のステップ 7 のコードで置き換え*/
+
+    /*このコメントを演習 4-4 ステップ 3 のコードで置き換え*/
+
+    //情報表示用のエレメントを追加
+    function showItem(text) {
+        let elm = document.createElement('div');
+        elm.innerText = text;
+        display.appendChild(elm);
+    }
+    //表示、非表示が相反するコントロールの表示を切り替える
+    function flip_flopDisplay(ctrl1, ctrl2) {
+        ctrl1.style.display = ctrl2.style.display;
+        ctrl2.style.display = (ctrl2.style.display === 'none') ? 'block' : 'none';
+    }
+
+    //プロパティ名と値を表示
+    function showPropertyName_and_Value(objInfo) {
+        for (var prop in objInfo) {
+            showItem(`${prop} : ${objInfo[prop]}`);
+        }
+    }
+</script>
+
+</html>
