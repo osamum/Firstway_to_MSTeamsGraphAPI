@@ -81,3 +81,7 @@ Microsoft Graph API は Office 365 のような Microsoft 365 に含まれるさ
 ## 参考資料
 - [Microsoft ID プラットフォームのドキュメント](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/)
 - [Microsoft Graph のドキュメント](https://docs.microsoft.com/ja-JP/graph/)
+
+## 改訂情報　(2021/04/26)
+
+演習用アプリケーション認証コードを Microsoft Authentication Library (MSAL) V1.0 の暗黙的な許可フローを使用するものから[PKCE および CORS がサポートされる MSAL.js 2.x と承認コード フロー](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/tutorial-v2-javascript-auth-code)を使用するものに変更しました。

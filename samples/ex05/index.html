@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js"
-        integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP"
+    <!-- msal.min.jsはmsal.jsの代わりに使用できます。デバッグを容易にするためにmsal.jsが含まれています -->
+    <script src="https://alcdn.msauth.net/browser/2.7.0/js/msal-browser.js"
+        integrity="sha384-5Fqyq1ncNYhL2mXCdWAFXkf2wWtKeA0mXYp++ryAX1lowD0ctAHFdity37L/ULXh"
         crossorigin="anonymous"></script>
+
+    <!-- 信頼性を確保するために、マイクロソフトは 2 つ目の CDN を提供しています -->
     <script type="text/javascript">
-        if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.1/js/msal.js' type='text/javascript' integrity='sha384-m/3NDUcz4krpIIiHgpeO0O8uxSghb+lfBTngquAo2Zuy2fEF+YgFeP08PWFo5FiJ' crossorigin='anonymous'%3E%3C/script%3E"));
+        if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/browser/2.7.0/js/msal-browser.js' type='text/javascript' crossorigin='anonymous' %3E%3C/script%3E"));
     </script>
     <script src="aadAuth.js"></script>
     <script src="graph.js"></script>
@@ -52,9 +56,7 @@
 
     sendFileButton.addEventListener('click', () => {
         const graphAPI_v01_uri = 'https://graph.microsoft.com/v1.0',
-            //targetDrive = 'me/drive/root:/demo',
-            //(※) parent-id の後ろに : (セミコロン) をかならず付加してください
-            targetDrive = 'groups/106d2e1f-9a78-453f-b34e-87f9d5b452c1/drive/items/016OHW67UNT3IH6FGGTNBYDNBKKT226NTA:',
+            targetDrive = 'groups/手順1-1で入手したgroup-id/drive/items/手順1-2で入手したparent-id:',
             targetFile = fileCtrl.files[0],
             apiEndpoint = `${graphAPI_v01_uri}/${targetDrive}/${targetFile.name}:/content`,
             uploadFile = {

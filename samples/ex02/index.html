@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js"
-        integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP"
+    <!-- msal.min.jsはmsal.jsの代わりに使用できます。デバッグを容易にするためにmsal.jsが含まれています -->
+    <script src="https://alcdn.msauth.net/browser/2.7.0/js/msal-browser.js"
+        integrity="sha384-5Fqyq1ncNYhL2mXCdWAFXkf2wWtKeA0mXYp++ryAX1lowD0ctAHFdity37L/ULXh"
         crossorigin="anonymous"></script>
+
+    <!-- 信頼性を確保するために、マイクロソフトは 2 つ目の CDN を提供しています -->
     <script type="text/javascript">
-        if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.1/js/msal.js' type='text/javascript' integrity='sha384-m/3NDUcz4krpIIiHgpeO0O8uxSghb+lfBTngquAo2Zuy2fEF+YgFeP08PWFo5FiJ' crossorigin='anonymous'%3E%3C/script%3E"));
+        if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/browser/2.7.0/js/msal-browser.js' type='text/javascript' crossorigin='anonymous' %3E%3C/script%3E"));
     </script>
     <script src="aadAuth.js"></script>
 </head>
@@ -17,10 +21,10 @@
 <body>
     <button id="logOnButton">ログイン</button>
     <div id="loginedArea" style="display: none;">
-    
+
         <!--このコメントを演習 3-2 のステップ 6 のタグで置き換え-->
         <!--このコメントを演習 4-4 のステップ 2 のタグで置き換え-->
-    
+
         <button id="logOffButton">ログオフ</button>
     </div>
     <br><br>
@@ -32,13 +36,13 @@
         display = $id('display');
     $id('logOnButton').addEventListener('click', logon);
     $id('logOffButton').addEventListener('click', logoff);
-    
+
     /*このコメントを演習 3-2 のステップ 7 のコードで置き換え*/
-    
+
     /*このコメントを演習 4-4 ステップ 3 のコードで置き換え*/
-    
+
     //情報表示用のエレメントを追加
-    function showItem(text){
+    function showItem(text) {
         let elm = document.createElement('div');
         elm.innerText = text;
         display.appendChild(elm);
@@ -55,5 +59,6 @@
             showItem(`${prop} : ${objInfo[prop]}`);
         }
     }
-    </script>
+</script>
+
 </html>
